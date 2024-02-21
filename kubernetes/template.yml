@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: oder
+  name: emergencyCall
   labels:
-    app: oder
+    app: emergencyCall
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: oder
+      app: emergencyCall
   template:
     metadata:
       labels:
-        app: oder
+        app: emergencyCall
     spec:
       containers:
-        - name: oder
-          image: username/oder:latest
+        - name: emergencyCall
+          image: username/emergencyCall:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -43,22 +43,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: delivery
+  name: dispatch
   labels:
-    app: delivery
+    app: dispatch
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: delivery
+      app: dispatch
   template:
     metadata:
       labels:
-        app: delivery
+        app: dispatch
     spec:
       containers:
-        - name: delivery
-          image: username/delivery:latest
+        - name: dispatch
+          image: username/dispatch:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -83,22 +83,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: product
+  name: hospital
   labels:
-    app: product
+    app: hospital
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: product
+      app: hospital
   template:
     metadata:
       labels:
-        app: product
+        app: hospital
     spec:
       containers:
-        - name: product
-          image: username/product:latest
+        - name: hospital
+          image: username/hospital:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -125,15 +125,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: oder
+  name: emergencyCall
   labels:
-    app: oder
+    app: emergencyCall
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: oder
+    app: emergencyCall
 
 
 ---
@@ -142,15 +142,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: delivery
+  name: dispatch
   labels:
-    app: delivery
+    app: dispatch
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: delivery
+    app: dispatch
 
 
 ---
@@ -159,13 +159,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: product
+  name: hospital
   labels:
-    app: product
+    app: hospital
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: product
+    app: hospital
 

@@ -5,14 +5,14 @@ import Router from 'vue-router'
 Vue.use(Router);
 
 
-import OrderManager from "./components/listers/OrderCards"
-import OrderDetail from "./components/listers/OrderDetail"
+import EmergencyCallCallManager from "./components/listers/EmergencyCallCallCards"
+import EmergencyCallCallDetail from "./components/listers/EmergencyCallCallDetail"
 
-import DeliveryManager from "./components/listers/DeliveryCards"
-import DeliveryDetail from "./components/listers/DeliveryDetail"
+import DispatchDispatchManager from "./components/listers/DispatchDispatchCards"
+import DispatchDispatchDetail from "./components/listers/DispatchDispatchDetail"
 
-import InventoryManager from "./components/listers/InventoryCards"
-import InventoryDetail from "./components/listers/InventoryDetail"
+import HospitalHospitalManager from "./components/listers/HospitalHospitalCards"
+import HospitalHospitalDetail from "./components/listers/HospitalHospitalDetail"
 
 
 export default new Router({
@@ -20,36 +20,36 @@ export default new Router({
     base: process.env.BASE_URL,
     routes: [
             {
-                path: '/orders',
-                name: 'OrderManager',
-                component: OrderManager
+                path: '/emergencyCalls/calls',
+                name: 'EmergencyCallCallManager',
+                component: EmergencyCallCallManager
             },
             {
-                path: '/orders/:id',
-                name: 'OrderDetail',
-                component: OrderDetail
-            },
-
-            {
-                path: '/deliveries',
-                name: 'DeliveryManager',
-                component: DeliveryManager
-            },
-            {
-                path: '/deliveries/:id',
-                name: 'DeliveryDetail',
-                component: DeliveryDetail
+                path: '/emergencyCalls/calls/:id',
+                name: 'EmergencyCallCallDetail',
+                component: EmergencyCallCallDetail
             },
 
             {
-                path: '/inventories',
-                name: 'InventoryManager',
-                component: InventoryManager
+                path: '/dispatches/dispatches',
+                name: 'DispatchDispatchManager',
+                component: DispatchDispatchManager
             },
             {
-                path: '/inventories/:id',
-                name: 'InventoryDetail',
-                component: InventoryDetail
+                path: '/dispatches/dispatches/:id',
+                name: 'DispatchDispatchDetail',
+                component: DispatchDispatchDetail
+            },
+
+            {
+                path: '/hospitals/hospitals',
+                name: 'HospitalHospitalManager',
+                component: HospitalHospitalManager
+            },
+            {
+                path: '/hospitals/hospitals/:id',
+                name: 'HospitalHospitalDetail',
+                component: HospitalHospitalDetail
             },
 
 

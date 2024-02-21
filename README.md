@@ -1,7 +1,7 @@
 # 
 
 ## Model
-www.msaez.io/#/storming/modelforops
+www.msaez.io/#/courses/cna-full/093c4d10-b34b-11ee-94ee-83b5b47c8792/end-to-end
 
 ## Before Running Services
 ### Make sure there is a Kafka server running
@@ -11,7 +11,7 @@ docker-compose up
 ```
 - Check the Kafka messages:
 ```
-cd kafka
+cd infra
 docker-compose exec -it kafka /bin/bash
 cd /bin
 ./kafka-console-consumer --bootstrap-server localhost:9092 --topic
@@ -20,9 +20,9 @@ cd /bin
 ## Run the backend micro-services
 See the README.md files inside the each microservices directory:
 
-- oder
-- delivery
-- product
+- emergencyCall
+- dispatch
+- hospital
 
 
 ## Run API Gateway (Spring Gateway)
@@ -32,17 +32,17 @@ mvn spring-boot:run
 ```
 
 ## Test by API
-- oder
+- emergencyCall
 ```
- http :8088/orders id="id" productName="productName" qty="qty" status="status" 
+ http :8088/calls id="id" carId="carId" driverName="driverName" position="position" accidentTime="accidentTime" 
 ```
-- delivery
+- dispatch
 ```
- http :8088/deliveries id="id" productName="productName" qty="qty" orderId="orderId" address="address" status="status" 
+ http :8088/dispatches id="id" carId="carId" carType="carType" workerId="workerId" dispatchTime="dispatchTime" 
 ```
-- product
+- hospital
 ```
- http :8088/inventories id="id" productName="productName" stock="stock" 
+ http :8088/hospitals id="id" hospitalId="hospitalId" hospitalName="hospitalName" address="address" 
 ```
 
 
